@@ -1,0 +1,18 @@
+USE diabetes;
+
+--Handeling the missing data 
+SELECT COUNT (*) AS missingGlucose 
+FROM 
+    diebetes
+ WHERE 
+    GLUCOSE 
+IS NULL;
+
+-- REPLACING THE MISSING DATA WITH RANDON 
+UPDATE 
+    diebetes
+SET 
+    Glucose = (
+        SELECT AVG(Glucose) 
+    FROM diebetes)
+WHERE Glucose IS NULL;

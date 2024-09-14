@@ -1,0 +1,25 @@
+USE diabetes;
+
+-- CHECKING IF BIM IS IN FLORT OR STRING
+-- Check and modify the column data type if needed
+ALTER TABLE diebetes
+ALTER COLUMN BMI FLOAT;
+
+ALTER TABLE diebetes
+DROP COLUMN BMI_CATEGORY;
+
+-- Adding a new column for BMI category
+ALTER TABLE diebetes
+ADD BMI_CATEGORY VARCHAR(20);
+
+UPDATE diebetes
+SET BMI_CATEGORY = 
+    CASE
+        WHEN BMI < 18.5 THEN 'Underweight'
+        WHEN BMI >= 18.5 AND BMI < 24.9 THEN 'Normal Weight'
+        WHEN BMI >= 25 AND BMI < 29.9 THEN 'Overweight'
+        ELSE 'Obesity'
+    END;
+
+--CHECKING IF NEW COLUMN IS CREATED OR NOT
+SELECT * FROM diebetes;

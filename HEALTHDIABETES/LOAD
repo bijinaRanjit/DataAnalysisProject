@@ -1,0 +1,29 @@
+USE diabetes;
+
+-- DROP THE TABLE IF EXISITING 
+DROP TABLE IF EXISTS diebetes;
+
+--CREATING THE TABLE 
+CREATE TABLE diebetes(
+    Pregnancies INT,
+    Glucose INT,
+    BloodPressure INT,
+    SkinThickness INT,
+    Insulin INT,
+    BMI FLOAT,
+    DiabetesPedigreeFunction FLOAT,
+    Age INT,
+    Outcome INT
+);
+
+--BLUK INSERT
+BULK INSERT diebetes FROM 'D:\JobHUNT\PROEJCT\HEALTHDIABETES\diabetes.csv'
+WITH (
+    FORMAT = 'CSV',
+    firstrow = 2,
+    fieldterminator = ','
+)
+
+--SELECTING THE TABLE
+SELECT * FROM diebetes;
+
