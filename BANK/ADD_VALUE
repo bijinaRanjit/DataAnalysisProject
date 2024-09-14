@@ -1,0 +1,11 @@
+USE BANK;
+
+UPDATE bankT
+SET balance_category = CASE 
+    WHEN balance < 0 THEN 'Negative'
+    WHEN balance BETWEEN 0 AND 1000 THEN 'Low'
+    WHEN balance BETWEEN 1001 AND 5000 THEN 'Medium'
+    ELSE 'High'
+END;
+
+SELECT * FROM bankT;

@@ -1,0 +1,43 @@
+ USE BANK;
+
+-- DROP THE TABLE IF IT EXISTS
+DROP TABLE IF EXISTS bankT;
+
+-- CREATE THE TABLE
+CREATE TABLE bankT (
+    age INT,
+    job VARCHAR(50),
+    marital VARCHAR(20),
+    education VARCHAR(20),
+    default_status VARCHAR(3),  -- "default" is a reserved word, renamed to default_status
+    balance INT,
+    housing VARCHAR(3),
+    loan VARCHAR(3),
+    contact VARCHAR(20),
+    day INT,
+    month VARCHAR(10),
+    duration INT,
+    campaign INT,
+    pdays INT,
+    previous INT,
+    poutcome VARCHAR(20),
+    deposit VARCHAR(3)
+);
+
+
+-- LOAD DATA FROM CSV
+BULK insert bankT
+FROM 'D:\JobHUNT\PROEJCT\BANK\bank.csv'
+WITH
+  (format = 'CSV',
+  FIRSTROW = 2,
+  FieldTERMINATOR= ',',
+  ROWTERMINATOR = '0x0a'
+
+  );
+
+
+-- DISPLAY THE DATA
+SELECT * FROM bankT;
+
+

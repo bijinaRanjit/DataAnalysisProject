@@ -1,0 +1,7 @@
+USE BANK;
+
+DELETE FROM bankT WHERE balance < 0;
+
+DELETE FROM bankT WHERE age < 18 OR age > 100;
+
+SELECT * FROM bankT

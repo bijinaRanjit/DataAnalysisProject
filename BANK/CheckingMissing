@@ -1,0 +1,6 @@
+USE BANK;
+
+SELECT * FROM bankT
+WHERE age IS NULL OR job IS NULL OR marital IS NULL OR education IS NULL;
+
+-- there is no missing data 

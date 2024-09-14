@@ -1,0 +1,5 @@
+USE BANK;
+
+ALTER TABLE bankT ADD balance_category VARCHAR (20);
+
+SELECT * FROM bankT;
